@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Value: {fileID: 0}
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.5
     min: 0
     max: 1
   maxSamples:
@@ -97,15 +97,15 @@ MonoBehaviour:
     min: 0
   nearFocusEnd:
     m_OverrideState: 1
-    m_Value: 12
+    m_Value: 10
     min: 0
   farFocusStart:
     m_OverrideState: 1
-    m_Value: 18
+    m_Value: 20
     min: 0
   farFocusEnd:
     m_OverrideState: 1
-    m_Value: 20
+    m_Value: 50
     min: 0
   nearSampleCount:
     m_OverrideState: 0

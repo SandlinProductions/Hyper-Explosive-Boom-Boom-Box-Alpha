@@ -11,22 +11,28 @@ public class CameraTracking : MonoBehaviour
     [SerializeField]
     float yOffset;
     [SerializeField]
-    float followSpeed;
+    public float xFollowSpeed;
+    [SerializeField]
+    float yFollowSpeed;
     public PlayerController playerController;
     public bool isZoomedOout;
+    public float currentFollow;
 
+    private void Start()
+    {
+        currentFollow = xFollowSpeed;
+    }
     // Update is called once per frame
     private void Update()
     {
-       // if (isZoomedOout == false)
-       // {
+       
             if (playerController.facingRight == true)
             {
                 float xTarget = trackingTarget.position.x + xOffset;
                 float yTarget = trackingTarget.position.y + yOffset;
 
-                float xNew = Mathf.Lerp(transform.position.x, xTarget, Time.deltaTime * followSpeed);
-                float yNew = Mathf.Lerp(transform.position.y, yTarget, Time.deltaTime * followSpeed);
+                float xNew = Mathf.Lerp(transform.position.x, xTarget, Time.deltaTime * xFollowSpeed);
+                float yNew = Mathf.Lerp(transform.position.y, yTarget, Time.deltaTime * yFollowSpeed);
 
                 transform.position = new Vector3(xNew, yNew, transform.position.z);
             }
@@ -35,12 +41,13 @@ public class CameraTracking : MonoBehaviour
                 float xTarget = trackingTarget.position.x + -xOffset;
                 float yTarget = trackingTarget.position.y + yOffset;
 
-                float xNew = Mathf.Lerp(transform.position.x, xTarget, Time.deltaTime * followSpeed);
-                float yNew = Mathf.Lerp(transform.position.y, yTarget, Time.deltaTime * followSpeed);
+                float xNew = Mathf.Lerp(transform.position.x, xTarget, Time.deltaTime * xFollowSpeed);
+                float yNew = Mathf.Lerp(transform.position.y, yTarget, Time.deltaTime * yFollowSpeed);
 
                 transform.position = new Vector3(xNew, yNew, transform.position.z);
             }
-       // }
+       
+     
     }
   
 }

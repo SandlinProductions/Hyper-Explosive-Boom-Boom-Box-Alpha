@@ -36,20 +36,18 @@ public class Respawn : MonoBehaviour
     IEnumerator Dead()
     {
         
-        transform.position = respawn;
         Debug.Log("I'm dead");
         yield return new WaitForSeconds(1);
         RespawnPlayer();
     }
     void RespawnPlayer()
     {
-
-        Instantiate(respawnParticles, transform.position, Quaternion.identity);
+        transform.position = respawn;
         StartCoroutine(Alive());
     }
     IEnumerator Alive()
     {
-        
+        Instantiate(respawnParticles, transform.position, Quaternion.identity);
         Debug.Log("Coming back alive");
         yield return new WaitForSeconds(1);
         Instantiate(respawnSecondParticles, transform.position,Quaternion.identity);

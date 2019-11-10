@@ -6,6 +6,7 @@ public class PlayerJumping : MonoBehaviour
 {
     //This contains everything related to jumpinp
     public PlayerController PlayerController;
+    public ParticleSystem dust;
     public float jump;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
@@ -50,6 +51,7 @@ public class PlayerJumping : MonoBehaviour
     {
         if (GetComponent<PlayerController>().grounded == true)
         {
+            CreateDust();
             GetComponent<PlayerController>().candoublejump = true;
             GetComponent<Rigidbody>().velocity = Vector2.up * jump;
         }
@@ -72,6 +74,10 @@ public class PlayerJumping : MonoBehaviour
         {
             GetComponent<Rigidbody>().velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
+    }
+    void CreateDust()
+    {
+        dust.Play();
     }
 
 }

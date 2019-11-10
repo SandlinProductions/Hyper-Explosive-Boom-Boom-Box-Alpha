@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
         if (h * GetComponent<Rigidbody>().velocity.x < maxSpeed)
             // ... add a force to the player.
             GetComponent<Rigidbody>().AddForce(Vector2.right * h * moveForce);
-
         // If the player's horizontal velocity is greater than the maxSpeed...
         if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x) > maxSpeed)
             // ... set the player's velocity to the maxSpeed in the x axis.

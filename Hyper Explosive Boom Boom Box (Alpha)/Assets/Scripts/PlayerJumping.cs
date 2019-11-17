@@ -6,11 +6,11 @@ public class PlayerJumping : MonoBehaviour
 {
     //This contains everything related to jumpinp
     public PlayerController PlayerController;
-    public ParticleSystem dust;
     public float jump;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
-    public GameObject BigJumpingParticles;
+    public ParticleSystem dust;
+    public ParticleSystem doubleJump;
 
     private void Start()
     {
@@ -60,7 +60,8 @@ public class PlayerJumping : MonoBehaviour
             if (GetComponent<PlayerController>().candoublejump)
             {
                 GetComponent<Rigidbody>().velocity = new Vector2(GetComponent<Rigidbody>().velocity.x, jump);
-                Instantiate(BigJumpingParticles, transform.position, Quaternion.identity);
+                CreateBigJump();
+                //Instantiate(BigJumpingParticles, transform.position, Quaternion.identity);
                 GetComponent<PlayerController>().candoublejump = false;
             }
         }
@@ -78,6 +79,10 @@ public class PlayerJumping : MonoBehaviour
     void CreateDust()
     {
         dust.Play();
+    }
+    void CreateBigJump()
+    {
+        doubleJump.Play();
     }
 
 }

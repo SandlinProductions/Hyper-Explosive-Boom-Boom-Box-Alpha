@@ -23,7 +23,7 @@ public class CameraTracking : MonoBehaviour
         currentFollow = xFollowSpeed;
     }
     // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
        
             if (playerController.facingRight == true)
@@ -49,5 +49,7 @@ public class CameraTracking : MonoBehaviour
        
      
     }
-  
+        
+    
+
 }

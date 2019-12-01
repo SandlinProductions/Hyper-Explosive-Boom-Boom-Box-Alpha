@@ -53,7 +53,9 @@ public class Respawn : MonoBehaviour
         Instantiate(respawnSecondParticles, transform.position,Quaternion.identity);
         playersRender.GetComponent<Renderer>().enabled = true;
         gameObject.GetComponent<BoxCollider>().enabled = true;
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        GetComponent<Rigidbody>().constraints = ~RigidbodyConstraints.FreezePositionY
+            & ~RigidbodyConstraints.FreezePositionX
+            & ~RigidbodyConstraints.FreezeRotationZ;
         GetComponent<PlayerController>().alive = true;
         cameraTracking.xFollowSpeed = cameraTracking.currentFollow;
     }

@@ -15,6 +15,7 @@ public class Respawn : MonoBehaviour
     public GameObject playersRender;
     public CameraTracking cameraTracking;
 
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Bad Thing")
@@ -57,6 +58,6 @@ public class Respawn : MonoBehaviour
             & ~RigidbodyConstraints.FreezePositionX
             & ~RigidbodyConstraints.FreezeRotationZ;
         GetComponent<PlayerController>().alive = true;
-        cameraTracking.xFollowSpeed = cameraTracking.currentFollow;
+        cameraTracking.xFollowSpeed = cameraTracking.currentFollowX;
     }
 }

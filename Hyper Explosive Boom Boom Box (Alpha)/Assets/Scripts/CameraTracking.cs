@@ -13,14 +13,18 @@ public class CameraTracking : MonoBehaviour
     [SerializeField]
     public float xFollowSpeed;
     [SerializeField]
-    float yFollowSpeed;
+    public float yFollowSpeed;
     public PlayerController playerController;
     public bool isZoomedOout;
-    public float currentFollow;
+    public float currentFollowX;
+    public float currentFollowY;
 
     private void Start()
     {
-        currentFollow = xFollowSpeed;
+        currentFollowX = xFollowSpeed;
+        currentFollowY = yFollowSpeed;
+
+       
     }
     // Update is called once per frame
     private void FixedUpdate()

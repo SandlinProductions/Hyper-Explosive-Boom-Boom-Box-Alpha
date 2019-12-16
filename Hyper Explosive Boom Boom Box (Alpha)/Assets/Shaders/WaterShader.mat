@@ -12,7 +12,7 @@ Material:
     type: 3}
   m_ShaderKeywords: _BLENDMODE_ALPHA _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 1
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
   stringTagMap:
@@ -195,9 +195,9 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 5
     - _RequireSplitLighting: 0
-    - _Ripple_Density: 1
+    - _Ripple_Density: 0.55
     - _Ripple_Slimness: 1
-    - _Ripple_Speed: 0.75
+    - _Ripple_Speed: 0.25
     - _SSRefractionProjectionModel: 0
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
@@ -235,7 +235,7 @@ Material:
     - _UVEmissive: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
-    - _Wave_Speed: 0.05
+    - _Wave_Speed: 0.1
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
     - _ZTestModeDistortion: 8
@@ -255,7 +255,7 @@ Material:
     - _Foam_Color: {r: 8.483283, g: 0, b: 0, a: 0}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _Normal_Speed: {r: 0.5, g: 0.1, b: 0, a: 0}
+    - _Normal_Speed: {r: 0.15, g: 0.15, b: 0, a: 0}
     - _Ripple_Color: {r: 0.07018551, g: 0.113113746, b: 1.6532594, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}

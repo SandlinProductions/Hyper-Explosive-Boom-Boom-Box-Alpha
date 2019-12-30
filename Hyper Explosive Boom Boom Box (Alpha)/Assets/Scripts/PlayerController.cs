@@ -27,11 +27,28 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         grounded = true;
+
+        if (collision.gameObject.tag == "Platform")
+        {
+            print("Platfrom");
+            transform.parent = collision.transform;
+        }
+        if (collision.gameObject.tag == "Wall")
+        {
+            grounded = false;
+        }
+
     }
 
 
     private void OnCollisionExit(Collision collision)
     {
         grounded = false;
+
+        if (collision.gameObject.tag == "Platform")
+        {
+            print("Off Platfrom");
+            transform.parent = null;
+        }
     }
 }

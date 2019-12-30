@@ -20,6 +20,7 @@ public class Respawn : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bad Thing")
         {
+            transform.parent = null;
             Die();
         }
     }

@@ -44,10 +44,11 @@ public class Respawn : MonoBehaviour
     }
     void RespawnPlayer()
     {
-        transform.position = respawn;
-        GetComponent<PlayerPhysics>().gravityScale = 5f;
-        GetComponent<PlayerJumping>().jump = 25f;
-        StartCoroutine(Alive());
+        //transform.position = respawn;
+        //GetComponent<PlayerPhysics>().gravityScale = 5f;
+        //GetComponent<PlayerJumping>().jump = 25f;
+        //StartCoroutine(Alive());
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }
     IEnumerator Alive()
     {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerSticky : MonoBehaviour
 {
     private bool grounded;
+    public Abilities Abilities;
 
 
     //Check if Grounded
@@ -24,21 +25,31 @@ public class PlayerSticky : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         grounded = false;
+        GetComponent<Rigidbody>().constraints = ~RigidbodyConstraints.FreezePositionY
+               & ~RigidbodyConstraints.FreezePositionX
+               & ~RigidbodyConstraints.FreezeRotationZ;
+        Debug.Log("I should be free");
     }
 
     void Stick()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) || (Input.GetButtonDown("Sticky")))
+        if (Abilities.GetComponent<Abilities>().wallStick == true)
         {
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
-            print("I'am I sticking to this?");
-        }
-        if (Input.GetKeyUp(KeyCode.Tab) || (Input.GetButtonUp("Sticky")))
-        {
-            GetComponent<Rigidbody>().constraints = ~RigidbodyConstraints.FreezePositionY
-                & ~RigidbodyConstraints.FreezePositionX
-                & ~RigidbodyConstraints.FreezeRotationZ;
+
+            if (Input.GetKeyDown(KeyCode.Tab) || (Input.GetButtonDown("Sticky")))
+            {
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+                print("am I sticking to this?");
+            }
+            if (Input.GetKeyUp(KeyCode.Tab) || (Input.GetButtonUp("Sticky")))
+            {
+                GetComponent<Rigidbody>().constraints = ~RigidbodyConstraints.FreezePositionY
+                    & ~RigidbodyConstraints.FreezePositionX
+                    & ~RigidbodyConstraints.FreezeRotationZ;
+                print("am I un Sticking to this");
+            }
         }
     }
 

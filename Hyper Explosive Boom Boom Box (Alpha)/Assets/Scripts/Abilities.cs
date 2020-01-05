@@ -9,7 +9,7 @@ public class Abilities : MonoBehaviour
     public bool wallStick;
     public static Abilities instance = null;
 
-    void Start()
+    void Awake()
     {
         dash = false;
         timeShift = false;

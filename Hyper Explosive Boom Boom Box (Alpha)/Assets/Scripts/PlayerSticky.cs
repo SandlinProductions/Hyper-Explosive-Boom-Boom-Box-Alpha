@@ -5,9 +5,12 @@ using UnityEngine;
 public class PlayerSticky : MonoBehaviour
 {
     private bool grounded;
-    public Abilities Abilities;
+    public GameObject Abilities;
 
-
+    private void Start()
+    {
+        Abilities = GameObject.FindWithTag("Skill");
+    }
     //Check if Grounded
     private void OnCollisionStay(Collision collision)
     {

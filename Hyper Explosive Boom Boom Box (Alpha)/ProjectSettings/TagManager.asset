@@ -7,6 +7,7 @@ TagManager:
   - Bad Thing
   - FxTemporaire
   - Platform
+  - Skill
   layers:
   - Default
   - TransparentFX

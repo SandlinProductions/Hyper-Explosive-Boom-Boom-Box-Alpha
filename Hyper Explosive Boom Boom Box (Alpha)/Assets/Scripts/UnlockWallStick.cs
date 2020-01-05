@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class UnlockWallStick : MonoBehaviour
 {
-    public Abilities Abilities;
+    public GameObject Abilities;
     private void Start()
     {
+        Abilities = GameObject.FindWithTag("Skill");
         if (Abilities.GetComponent<Abilities>().wallStick == true)
         {
             gameObject.SetActive(false);

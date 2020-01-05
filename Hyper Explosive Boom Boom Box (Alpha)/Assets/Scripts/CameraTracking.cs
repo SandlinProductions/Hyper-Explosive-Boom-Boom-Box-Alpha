@@ -22,16 +22,14 @@ public class CameraTracking : MonoBehaviour
     private void Start()
     {
         currentFollowX = xFollowSpeed;
-        currentFollowY = yFollowSpeed;
-
-       
+        currentFollowY = yFollowSpeed;  
     }
     // Update is called once per frame
     private void FixedUpdate()
     {
        
-            if (playerController.facingRight == true)
-            {
+            if (playerController.facingRight== true)
+        {
                 float xTarget = trackingTarget.position.x + xOffset;
                 float yTarget = trackingTarget.position.y + yOffset;
 
@@ -40,8 +38,8 @@ public class CameraTracking : MonoBehaviour
 
                 transform.position = new Vector3(xNew, yNew, transform.position.z);
             }
-            else if (playerController.facingRight == false)
-            {
+            else if (playerController.facingRight== false)
+        {
                 float xTarget = trackingTarget.position.x + -xOffset;
                 float yTarget = trackingTarget.position.y + yOffset;
 
@@ -50,8 +48,18 @@ public class CameraTracking : MonoBehaviour
 
                 transform.position = new Vector3(xNew, yNew, transform.position.z);
             }
+        if (playerController.alive == false)
+        {
+            Dead();
+        }
        
      
+    }
+
+    void Dead()
+    {
+        xOffset = 0;
+        GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, 29, Time.deltaTime * 1);
     }
         
     

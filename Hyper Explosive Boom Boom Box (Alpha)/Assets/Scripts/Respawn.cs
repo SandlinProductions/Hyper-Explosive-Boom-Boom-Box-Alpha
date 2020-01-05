@@ -15,7 +15,10 @@ public class Respawn : MonoBehaviour
     public GameObject playersRender;
     public CameraTracking cameraTracking;
 
-
+    private void Start()
+    {
+        cameraTracking = GetComponent<CameraTracking>();
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Bad Thing")
@@ -33,7 +36,7 @@ public class Respawn : MonoBehaviour
         gameObject.GetComponent<BoxCollider>().enabled = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         GetComponent<PlayerController>().alive = false;
-        cameraTracking.xFollowSpeed = 5f;
+        //cameraTracking.xFollowSpeed = 5f;
     }
     IEnumerator Dead()
     {
@@ -44,24 +47,26 @@ public class Respawn : MonoBehaviour
     }
     void RespawnPlayer()
     {
-        //transform.position = respawn;
+        // transform.position = respawn;
         //GetComponent<PlayerPhysics>().gravityScale = 5f;
         //GetComponent<PlayerJumping>().jump = 25f;
-        //StartCoroutine(Alive());
-        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+        Instantiate(respawnParticles, transform.position, Quaternion.identity);
+        StartCoroutine(Alive());
+        //Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }
     IEnumerator Alive()
     {
-        Instantiate(respawnParticles, transform.position, Quaternion.identity);
+        //Instantiate(respawnSecondParticles, transform.position, Quaternion.identity);
         Debug.Log("Coming back alive");
         yield return new WaitForSeconds(1);
-        Instantiate(respawnSecondParticles, transform.position,Quaternion.identity);
-        playersRender.GetComponent<Renderer>().enabled = true;
-        gameObject.GetComponent<BoxCollider>().enabled = true;
-        GetComponent<Rigidbody>().constraints = ~RigidbodyConstraints.FreezePositionY
-            & ~RigidbodyConstraints.FreezePositionX
-            & ~RigidbodyConstraints.FreezeRotationZ;
-        GetComponent<PlayerController>().alive = true;
-        cameraTracking.xFollowSpeed = cameraTracking.currentFollowX;
+        //Instantiate(respawnSecondParticles, transform.position,Quaternion.identity);
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+        //playersRender.GetComponent<Renderer>().enabled = true;
+        //gameObject.GetComponent<BoxCollider>().enabled = true;
+        //GetComponent<Rigidbody>().constraints = ~RigidbodyConstraints.FreezePositionY
+        // & ~RigidbodyConstraints.FreezePositionX
+        // & ~RigidbodyConstraints.FreezeRotationZ;
+        //GetComponent<PlayerController>().alive = true;
+        //cameraTracking.xFollowSpeed = cameraTracking.currentFollowX;
     }
 }

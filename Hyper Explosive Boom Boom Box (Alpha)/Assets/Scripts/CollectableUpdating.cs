@@ -17,6 +17,12 @@ public class CollectableUpdating : MonoBehaviour
     float followSpeed;
     public PlayerController playerController;
     public GameObject particle;
+    public GameObject SoundManager;
+
+    private void Start()
+    {
+        SoundManager = GameObject.FindWithTag("SoundManager");
+    }
 
     private void Update()
     {
@@ -52,7 +58,7 @@ public class CollectableUpdating : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             GetComponent<BoxCollider>().isTrigger = true;
-            SoundManager.instance.RandomizeSfx(collectingSound);
+            SoundManager.GetComponent<SoundManager>().RandomizeSfx(collectingSound);
             collected = true;
             CollectableScoring.theScore += 1;
             StartCoroutine(Collected());

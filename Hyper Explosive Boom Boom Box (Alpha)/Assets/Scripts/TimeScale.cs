@@ -6,19 +6,19 @@ public class TimeScale : MonoBehaviour
 {
     public AudioClip slowMotionSound;
     public AudioClip restoreMotionSound;
-    private Abilities abilities;
+    private GameObject Abilities;
     public GameObject SoundManager;
     public bool timeIsSlowed;
 
-    private void Awake()
+    private void Start()
     {
-        abilities = FindObjectOfType<Abilities>();
+        Abilities = GameObject.FindWithTag("Skill");
         SoundManager = GameObject.FindWithTag("SoundManager");
     }
     //This is how we slow it all down.
     void Update()
     {
-        if (abilities.GetComponent<Abilities>().timeShift == true)
+        if (Abilities.GetComponent<Abilities>().timeShift == true)
         {
             
             if (Input.GetButtonDown("Time") & PauseMenu.GameIsPaused == false)
@@ -33,6 +33,13 @@ public class TimeScale : MonoBehaviour
                 SlowSounds();
             }
  
+        }
+        if(GetComponent<PlayerController>().alive == false)
+        {
+            Time.timeScale = 1.0f;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            timeIsSlowed = false;
+            GetComponent<TimeScale>().enabled = false;
         }
      
     }

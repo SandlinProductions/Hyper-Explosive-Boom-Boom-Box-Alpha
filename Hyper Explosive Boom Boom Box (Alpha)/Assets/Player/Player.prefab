@@ -4767,15 +4767,15 @@ GameObject:
   - component: {fileID: 7767580379316848463}
   - component: {fileID: 7767580379316848460}
   - component: {fileID: 7767580379316848468}
-  - component: {fileID: 5977385190932699074}
   - component: {fileID: 7767580379316848458}
   - component: {fileID: 7767580379316848469}
   - component: {fileID: 7202630445268007046}
   - component: {fileID: 7767580379316848459}
   - component: {fileID: 7767580379316848471}
+  - component: {fileID: 836079318}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4888,21 +4888,6 @@ MonoBehaviour:
   candoublejump: 0
   facingRight: 1
   alive: 0
---- !u!114 &5977385190932699074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7767580379316848461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 115002a4e5a7940e688fec284d1b838b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dash: 0
-  timeShift: 0
-  wallStick: 0
 --- !u!114 &7767580379316848458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4919,7 +4904,7 @@ MonoBehaviour:
   moveVelocity: 0
   moveForce: 950
   maxSpeed: 10
-  timeForce: 0
+  timeForce: 5.1
 --- !u!114 &7767580379316848469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4950,6 +4935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f2f51000be04a39904ec92df133c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Abilities: {fileID: 0}
 --- !u!114 &7767580379316848459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4962,7 +4948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d718fa28a33e4eeeaa4255c1423acbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawn: {x: -9, y: 4, z: 0}
+  respawn: {x: -143, y: -10, z: 0}
   deathParticles: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
   respawnParticles: {fileID: 1545806602296978, guid: 9e4577abe56a95f4a91d29a0473cd30c,
     type: 3}
@@ -4983,6 +4969,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityScale: 5
+--- !u!114 &836079318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7767580379316848461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ecbb0007715f4c1cb8b2e4f9cc50c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowMotionSound: {fileID: 8300000, guid: 5d447fea6940840329a50e2aca052e66, type: 3}
+  restoreMotionSound: {fileID: 8300000, guid: 9ebd45a1e76f841a39646bcd7e4abd17, type: 3}
+  SoundManager: {fileID: 0}
+  timeIsSlowed: 0
 --- !u!1001 &7767580378351338985
 PrefabInstance:
   m_ObjectHideFlags: 0

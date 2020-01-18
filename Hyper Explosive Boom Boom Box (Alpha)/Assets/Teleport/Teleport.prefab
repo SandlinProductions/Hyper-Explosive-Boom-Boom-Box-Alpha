@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b441f9d67f0942f7a7c257eaf1dc838, type: 2}
+  - {fileID: 2100000, guid: b2c3630eb27b84001babdae47559f397, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -643,6 +643,10 @@ MonoBehaviour:
   teleportSpawn: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   teleportParticles: {fileID: 0}
+  cameraTracking: {fileID: 0}
+  xFollow: 0
+  yFollow: 0
+  delay: 0
 --- !u!1 &4449567404571754714
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +707,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b441f9d67f0942f7a7c257eaf1dc838, type: 2}
+  - {fileID: 2100000, guid: c72a0a7d58d48f940b11d415f0b70265, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

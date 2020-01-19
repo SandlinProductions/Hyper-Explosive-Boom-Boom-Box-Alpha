@@ -7,11 +7,13 @@ public class Abilities : MonoBehaviour
     public bool dash;
     public bool timeShift;
     public bool wallStick;
+    public bool changingSize;
 
     void Awake()
     {
         dash = false;
         timeShift = false;
         wallStick = false;
+        changingSize = false;
     }
 }

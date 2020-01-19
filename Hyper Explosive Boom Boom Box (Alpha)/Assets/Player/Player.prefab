@@ -4773,6 +4773,7 @@ GameObject:
   - component: {fileID: 7767580379316848459}
   - component: {fileID: 7767580379316848471}
   - component: {fileID: 836079318}
+  - component: {fileID: 4011416537993430075}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4985,6 +4986,25 @@ MonoBehaviour:
   restoreMotionSound: {fileID: 8300000, guid: 9ebd45a1e76f841a39646bcd7e4abd17, type: 3}
   SoundManager: {fileID: 0}
   timeIsSlowed: 0
+--- !u!114 &4011416537993430075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7767580379316848461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1733a15c7f374cbcacbe77c60af3495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashState: 0
+  dashTimer: 0
+  maxDash: 0.25
+  dashSpeed: 3
+  dashParticles: {fileID: 1158066625404604, guid: ddb93d82897f440aabc3dd35d5dfb544,
+    type: 3}
+  dashBlast: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!1001 &7767580378351338985
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -585,7 +585,7 @@ InputManager:
     m_Name: Sticky
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: joystick button 4
+    negativeButton: 
     positiveButton: tab
     altNegativeButton: 
     altPositiveButton: joystick button 7
@@ -601,7 +601,7 @@ InputManager:
     m_Name: Time
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: joystick button 5
+    negativeButton: 
     positiveButton: joystick button 6
     altNegativeButton: 
     altPositiveButton: q
@@ -650,15 +650,15 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 5
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
     dead: 0.001
     sensitivity: 1000
-    snap: 1
-    invert: 1
-    type: 2
+    snap: 0
+    invert: 0
+    type: 0
     axis: 7
     joyNum: 0
   - serializedVersion: 3
@@ -666,14 +666,14 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 4
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
     dead: 0.001
     sensitivity: 1000
-    snap: 1
-    invert: 1
-    type: 2
+    snap: 0
+    invert: 0
+    type: 0
     axis: 7
     joyNum: 0

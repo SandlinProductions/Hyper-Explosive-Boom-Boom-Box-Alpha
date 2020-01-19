@@ -27,7 +27,7 @@ public class ChangingSize : MonoBehaviour {
     {
         if (Abilities.GetComponent<Abilities>().changingSize == true)
         {
-            if (Input.GetAxisRaw("Bigger") > 0)
+            if (Input.GetButtonDown("Bigger"))
             {
                 print("Bigger!");
                 if (isAxisInUse == false)
@@ -38,7 +38,7 @@ public class ChangingSize : MonoBehaviour {
                 }
 
             }
-            if (Input.GetAxisRaw("Smaller") < 0)
+            if (Input.GetButtonDown("Smaller"))
             {
                 print("Smaller!");
                 if (isAxisInUse == false)
@@ -49,13 +49,13 @@ public class ChangingSize : MonoBehaviour {
                 }
 
             }
-            if (isBigger == true & Input.GetAxisRaw("Smaller") < 0)
+            if (isBigger == true & Input.GetButtonDown("Smaller"))
             {
                 NormalSize();
                 isAxisInUse = true;
                 Debug.Log("Normal");
             }
-            if (isSmaller == true & Input.GetAxisRaw("Bigger") > 0)
+            if (isSmaller == true & Input.GetButtonDown("Bigger"))
             {
 
                 NormalSize();

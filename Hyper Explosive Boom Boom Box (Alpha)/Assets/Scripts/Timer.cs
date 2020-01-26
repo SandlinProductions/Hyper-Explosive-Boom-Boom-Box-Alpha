@@ -19,10 +19,10 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(GetComponent<PlayerController>().alive == false)
-        {
-            Reset();
-        }
+        //if(GetComponent<PlayerController>().alive == false)
+        //{
+          //  Reset();
+        //}
         if (GetComponent<PlayerController>().finshed == true)
         {
             Finnished();
@@ -40,9 +40,9 @@ public class Timer : MonoBehaviour
         finnishedbox = true;
         timerText.color = Color.yellow;
     }
-    private void Reset()
-    {
-        startTime = Time.time;
-    }
+    //private void Reset()
+    //{
+       
+    //}
 
 }

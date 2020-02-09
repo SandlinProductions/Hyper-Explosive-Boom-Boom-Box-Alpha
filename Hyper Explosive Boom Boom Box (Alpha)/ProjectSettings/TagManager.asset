@@ -9,6 +9,7 @@ TagManager:
   - Platform
   - Skill
   - SoundManager
+  - SceneFader
   layers:
   - Default
   - TransparentFX

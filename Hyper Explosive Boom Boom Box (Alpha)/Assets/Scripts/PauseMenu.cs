@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     // This Controls the Pause Menu
-    public SceneFader sceneFader;
+    public GameObject sceneFader;
     public string menuSceneName = "StartMenu";
     public string settingsSceneName = "SettingsMenu";
 
@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+        sceneFader = GameObject.FindWithTag("SceneFader");
         if (GameIsPaused) //this unpauses if we are reloading the scene
         {
             Resume();
@@ -28,21 +29,24 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button9))
+        if (player.GetComponent<PlayerController>().alive == true)
         {
-            if (GameIsPaused)
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button9))
             {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+                if (GameIsPaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
 
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button3))
-        {
-            Replay();
+            }
+            if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+            {
+                Replay();
+            }
         }
 
     }
@@ -67,18 +71,18 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameIsPaused = false;
-        sceneFader.FadeTo(menuSceneName);
+        sceneFader.GetComponent<SceneFader>().FadeTo(menuSceneName);
     }
     public void LoadSettingsMenu()
     {
         Time.timeScale = 1f;
         GameIsPaused = false;
-        sceneFader.FadeTo(settingsSceneName);
+        sceneFader.GetComponent<SceneFader>().FadeTo(settingsSceneName);
     }
     public void Replay()
     {
         Time.timeScale = 1f;
-        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
+        sceneFader.GetComponent<SceneFader>().FadeTo(SceneManager.GetActiveScene().name);
     }
     public void NextLevel()
     {

@@ -4705,6 +4705,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4774,6 +4775,9 @@ GameObject:
   - component: {fileID: 7767580379316848471}
   - component: {fileID: 836079318}
   - component: {fileID: 4011416537993430075}
+  - component: {fileID: 836079330}
+  - component: {fileID: 836079331}
+  - component: {fileID: 836079332}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4819,6 +4823,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5005,6 +5010,53 @@ MonoBehaviour:
   dashParticles: {fileID: 1158066625404604, guid: ddb93d82897f440aabc3dd35d5dfb544,
     type: 3}
   dashBlast: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+--- !u!114 &836079330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7767580379316848461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca53ff71291ac439296ff67bf8db2c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bigger: {x: 3, y: 3, z: 3}
+  smaller: {x: 0.5, y: 0.5, z: 0.5}
+  normal: {x: 0, y: 0, z: 0}
+  bigMass: 7
+  smallMass: 0.5
+  isBigger: 0
+  isSmaller: 0
+  isAxisInUse: 0
+  Abilities: {fileID: 0}
+--- !u!114 &836079331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7767580379316848461}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c53a8d67ee3402ea5c45bb09c6814b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 0}
+--- !u!114 &836079332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7767580379316848461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e159cfa307b4710b2ffb9eddbf7cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 0}
 --- !u!1001 &7767580378351338985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5060,15 +5112,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198499209413112314, guid: f01c1eba69de19e44b04d8d651aaac37,
-        type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114667553580105858, guid: f01c1eba69de19e44b04d8d651aaac37,
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198088390554020490, guid: f01c1eba69de19e44b04d8d651aaac37,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198499209413112314, guid: f01c1eba69de19e44b04d8d651aaac37,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198751251241529352, guid: f01c1eba69de19e44b04d8d651aaac37,
         type: 3}
@@ -5078,11 +5135,6 @@ PrefabInstance:
     - target: {fileID: 198751251241529352, guid: f01c1eba69de19e44b04d8d651aaac37,
         type: 3}
       propertyPath: ForceModule.inWorldSpace
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198088390554020490, guid: f01c1eba69de19e44b04d8d651aaac37,
-        type: 3}
-      propertyPath: moveWithTransform
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -7,9 +7,9 @@ public class CameraTracking : MonoBehaviour
    
     public Transform trackingTarget;
     [SerializeField]
-    float xOffset;
+    public float xOffset;
     [SerializeField]
-    float yOffset;
+    public float yOffset;
     [SerializeField]
     public float xFollowSpeed;
     [SerializeField]
@@ -18,11 +18,13 @@ public class CameraTracking : MonoBehaviour
     public bool isZoomedOout;
     public float currentFollowX;
     public float currentFollowY;
+    private Transform thePlayer;
 
     private void Start()
     {
         currentFollowX = xFollowSpeed;
-        currentFollowY = yFollowSpeed;  
+        currentFollowY = yFollowSpeed;
+        thePlayer = Transform.FindObjectOfType<PlayerController>().transform;
     }
     // Update is called once per frame
     private void FixedUpdate()
@@ -59,6 +61,7 @@ public class CameraTracking : MonoBehaviour
     void Dead()
     {
         xOffset = 0;
+        trackingTarget = thePlayer;
         GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, 29, Time.deltaTime * 1);
     }
         

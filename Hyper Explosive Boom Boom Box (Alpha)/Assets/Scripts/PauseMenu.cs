@@ -88,5 +88,9 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex + 1);
     }
+    public void PreviousLeve()
+    {
+        SceneManager.LoadScene(sceneIndex - 1);
+    }
 }
 

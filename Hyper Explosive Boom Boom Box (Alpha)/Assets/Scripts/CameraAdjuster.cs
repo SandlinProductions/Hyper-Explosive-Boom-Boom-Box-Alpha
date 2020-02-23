@@ -26,7 +26,7 @@ public class CameraAdjuster : MonoBehaviour
     [SerializeField]
     private CameraTracking cameraTracking;//this is where we put the Main Camera to access the CameraTricking Script.
     private Transform playerFocus;//this is what the Main Camera is normaly focused on.
-
+    public PlayerController PlayerController;
     void Start()
     {
         normal = mainCamera.GetComponent<Camera>().fieldOfView;//this grabs the Field of View from the Main Camera.
@@ -44,6 +44,10 @@ public class CameraAdjuster : MonoBehaviour
             cameraTracking.GetComponent<CameraTracking>().trackingTarget = cameraFocus;//this makes the Main Camera focus change to want we want while in the zone
             cameraTracking.GetComponent<CameraTracking>().xOffset = newOffSetX;
             cameraTracking.GetComponent<CameraTracking>().yOffset = newOffSetY;
+            if(PlayerController.GetComponent<PlayerController>().alive == false)
+            {
+                cameraTracking.GetComponent<CameraTracking>().trackingTarget = playerFocus;
+            }
         }
     }
     private void OnTriggerExit(Collider collision)

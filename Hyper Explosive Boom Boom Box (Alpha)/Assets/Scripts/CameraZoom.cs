@@ -14,10 +14,12 @@ public class CameraZoom : MonoBehaviour
     private bool isZoomed = false;
     private bool isZoomedOut = false;
 
+    public PlayerController playerController;
     public CameraTracking cameraTracking;
 
     private void Start()
     {
+        
        normal = GetComponent<Camera>().fieldOfView;
     }
 
@@ -26,19 +28,6 @@ public class CameraZoom : MonoBehaviour
         if (cameraTracking.GetComponent<CameraTracking>().isZoomedOout == false)
         {
 
-
-            if (Input.GetButton("Jump"))
-            {
-                isZoomed = !isZoomed;
-            }
-            if (isZoomed)
-            {
-                GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, zoom, Time.deltaTime * smooth);
-            }
-            else
-            {
-                GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, normal, Time.deltaTime * smooth);
-            }
             if (Input.GetButtonDown("GamePad"))
             {
                 isZoomedOut = !isZoomedOut;
@@ -48,7 +37,7 @@ public class CameraZoom : MonoBehaviour
                 GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, zoomOut, Time.deltaTime * smoothOut);
 
             }
-            else
+            else if(playerController.GetComponent<PlayerController>().alive == true)
             {
                 GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, normal, Time.deltaTime * smoothOut);
             }

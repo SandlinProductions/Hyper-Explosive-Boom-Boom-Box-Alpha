@@ -59,18 +59,18 @@ public class CollectableUpdating : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
+    //private void OnCollisionEnter(Collision collision)
+    //{
+        //if(collision.gameObject.tag == "Player")
+        //{
             //GetComponent<MeshCollider>().isTrigger = true;
-            SoundManager.GetComponent<SoundManager>().RandomizeSfx(collectingSound);
-            collected = true;
-            CollectableScoring.theScore += 1;
-            StartCoroutine(Collected());
-        }
+           // SoundManager.GetComponent<SoundManager>().RandomizeSfx(collectingSound);
+           // collected = true;
+           // CollectableScoring.theScore += 1;
+           // StartCoroutine(Collected());
+        //}
        
-    }
+    //}
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -78,6 +78,7 @@ public class CollectableUpdating : MonoBehaviour
             SoundManager.GetComponent<SoundManager>().RandomizeSfx(collectingSound);
             collected = true;
             CollectableScoring.theScore += 1;
+            GetComponent<MeshCollider>().enabled = false;
             StartCoroutine(Collected());
         }
     }

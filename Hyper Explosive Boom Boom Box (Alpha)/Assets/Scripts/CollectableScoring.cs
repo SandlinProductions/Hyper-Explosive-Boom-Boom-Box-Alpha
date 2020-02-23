@@ -5,9 +5,7 @@ using UnityEngine.UI;
 public class CollectableScoring : MonoBehaviour
 {
     public GameObject scoreText;
-    public float maxScore;
     public static int theScore;
-    private float percent;
 
     private void Start()
     {
@@ -15,8 +13,7 @@ public class CollectableScoring : MonoBehaviour
     }
     private void Update()
     {
-        percent = (theScore / maxScore)*100;
-        scoreText.GetComponent<Text>().text = percent.ToString("f1") + "%";
+        scoreText.GetComponent<Text>().text = theScore.ToString("");
     }
     
 }

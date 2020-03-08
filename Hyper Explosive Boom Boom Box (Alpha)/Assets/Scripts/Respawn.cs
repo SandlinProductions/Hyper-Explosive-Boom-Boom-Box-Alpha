@@ -13,11 +13,14 @@ public class Respawn : MonoBehaviour
     public GameObject respawnParticles;// The effect that will be released when the player comes back to life.
     public GameObject respawnSecondParticles;
     public GameObject playersRender;
+    public GameObject deathBoxes;
     public CameraTracking cameraTracking;
 
     private void Start()
     {
         cameraTracking = GetComponent<CameraTracking>();
+        Time.timeScale = 1.0f;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -36,17 +39,21 @@ public class Respawn : MonoBehaviour
         gameObject.GetComponent<BoxCollider>().enabled = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         GetComponent<PlayerController>().alive = false;
+        deathBoxes.SetActive(true);
+
         //cameraTracking.xFollowSpeed = 5f;
     }
     IEnumerator Dead()
     {
-        
         Debug.Log("I'm dead");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.5f);
+        Time.timeScale = 0.2F;
+        Time.fixedDeltaTime = 0.02F * Time.timeScale;
         RespawnPlayer();
     }
     void RespawnPlayer()
     {
+
         // transform.position = respawn;
         //GetComponent<PlayerPhysics>().gravityScale = 5f;
         //GetComponent<PlayerJumping>().jump = 25f;
@@ -58,7 +65,7 @@ public class Respawn : MonoBehaviour
     {
         //Instantiate(respawnSecondParticles, transform.position, Quaternion.identity);
         Debug.Log("Coming back alive");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.5f);
         //Instantiate(respawnSecondParticles, transform.position,Quaternion.identity);
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
         //playersRender.GetComponent<Renderer>().enabled = true;

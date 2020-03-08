@@ -29,25 +29,27 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<PlayerController>().alive == true)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button9))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button9))
             {
-                if (GameIsPaused)
+                if (player.GetComponent<PlayerController>().alive == true)
                 {
-                    Resume();
-                }
-                else
-                {
-                    Pause();
-                }
 
+                    if (GameIsPaused)
+                    {
+                        Resume();
+                    }
+                    else
+                    {
+                        Pause();
+                    }
+                }
             }
+
             if (Input.GetKeyDown(KeyCode.Joystick1Button3))
             {
                 Replay();
             }
-        }
+        
 
     }
     public void Resume()

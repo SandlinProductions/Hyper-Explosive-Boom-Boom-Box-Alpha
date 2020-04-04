@@ -4954,13 +4954,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d718fa28a33e4eeeaa4255c1423acbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawn: {x: -143, y: -10, z: 0}
-  deathParticles: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
-  respawnParticles: {fileID: 1545806602296978, guid: 9e4577abe56a95f4a91d29a0473cd30c,
+  respawn: {x: 17, y: 1, z: 0}
+  deathParticles: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  respawnParticles: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
   respawnSecondParticles: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
   playersRender: {fileID: 7767580379316848461}
+  deathBoxes: {fileID: 0}
   cameraTracking: {fileID: 0}
 --- !u!114 &7767580379316848471
 MonoBehaviour:

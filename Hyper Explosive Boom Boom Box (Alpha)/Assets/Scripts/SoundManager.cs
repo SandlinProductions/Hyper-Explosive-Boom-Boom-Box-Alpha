@@ -9,23 +9,12 @@ public class SoundManager : MonoBehaviour
     //public static SoundManager instance = null;     //Allows other scripts to call functions from SoundManager.             
     public float lowPitchRange = .95f;              //The lowest a sound effect will be randomly pitched.
     public float highPitchRange = 1.05f;            //The highest a sound effect will be randomly pitched.
+    public float masterVolume;
 
-
-    //void Awake()
-    //{
-        //Check if there is already an instance of SoundManager
-      //  if (instance == null)
-            //if not, set it to this.
-        //    instance = this;
-        //If instance already exists:
-       // else if (instance != this)
-            //Destroy this, this enforces our singleton pattern so there can only be one instance of SoundManager.
-         //   Destroy(gameObject);
-
-        //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
-       // DontDestroyOnLoad(gameObject);
-    //}
-
+    private void Start()
+    {
+        masterVolume = musicSource.volume;
+    }
 
     //Used to play single sound clips.
     public void PlaySingle(AudioClip clip)
@@ -61,22 +50,22 @@ public class SoundManager : MonoBehaviour
         if (PauseMenu.GameIsPaused == true)
         {
             musicSource.pitch = .5f;
-            musicSource.volume = .5f;
+            musicSource.volume = masterVolume/2;
         }
         if (PauseMenu.GameIsPaused == false)
         {
             musicSource.pitch = 1f;
-            musicSource.volume = 1f;
+            musicSource.volume = masterVolume;
         }
         if(Time.timeScale <1)
         {
             musicSource.pitch = .5f;
-            musicSource.volume = .5f;
+            musicSource.volume = masterVolume/2;
         }
         else if (Time.timeScale ==1f)
         {
             musicSource.pitch = 1f;
-            musicSource.volume = 1f;
+            musicSource.volume = masterVolume;
         }
     }
 }

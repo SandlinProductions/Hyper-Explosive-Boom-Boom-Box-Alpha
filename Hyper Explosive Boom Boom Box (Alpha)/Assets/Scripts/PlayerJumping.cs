@@ -59,8 +59,8 @@ public class PlayerJumping : MonoBehaviour
         {
             if (GetComponent<PlayerController>().candoublejump)
             {
-                GetComponent<Rigidbody>().velocity = new Vector2(GetComponent<Rigidbody>().velocity.x, jump);
                 CreateBigJump();
+                GetComponent<Rigidbody>().velocity = new Vector2(GetComponent<Rigidbody>().velocity.x, jump);
                 //Instantiate(BigJumpingParticles, transform.position, Quaternion.identity);
                 GetComponent<PlayerController>().candoublejump = false;
             }

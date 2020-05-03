@@ -8,7 +8,7 @@ public class BladeController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         foreach (ContactPoint contact in collision.contacts)
-            Instantiate(sparks, contact.point, Quaternion.identity);
+           ObjectPooler.Instance.SpawnFromPool("Sparks", contact.point, Quaternion.identity);
         print("I'm making sparks");
     }
 

@@ -85,7 +85,7 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 18
+  m_FocalLength: 16.21707
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -94,7 +94,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 500
-  field of view: 69
+  field of view: 73
   orthographic: 0
   orthographic size: 15
   m_Depth: -1
@@ -278,9 +278,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackingTarget: {fileID: 0}
   xOffset: 5
-  yOffset: 7
+  yOffset: 5
   xFollowSpeed: 2
-  yFollowSpeed: 5
+  yFollowSpeed: 3
   playerController: {fileID: 0}
   isZoomedOout: 0
   currentFollowX: 0
@@ -302,6 +302,7 @@ MonoBehaviour:
   normal: 0
   smooth: 1
   smoothOut: 5
+  playerController: {fileID: 0}
   cameraTracking: {fileID: 7686974402254291648}
 --- !u!54 &7686974402254291649
 Rigidbody:

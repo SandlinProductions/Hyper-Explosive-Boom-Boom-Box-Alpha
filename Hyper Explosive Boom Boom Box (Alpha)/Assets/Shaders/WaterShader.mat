@@ -268,7 +268,7 @@ Material:
     - _Foam_Color: {r: 0.16956498, g: 0.16956498, b: 0.16956498, a: 0}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _Normal_Speed: {r: 0.1, g: 0.1, b: 0.1, a: 0}
+    - _Normal_Speed: {r: 0.1, g: 0.1, b: 0.1, a: 0.1}
     - _Ripple_Color: {r: 0, g: 0, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}

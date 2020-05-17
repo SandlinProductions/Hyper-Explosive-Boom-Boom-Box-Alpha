@@ -10,13 +10,19 @@ public class CameraAdjuster : MonoBehaviour
     [SerializeField]
     private float newOffSetX;
     [SerializeField]
+    private float newFollowSpeedX;
+    [SerializeField]
     private float newOffSetY;
+    [SerializeField]
+    private float newFollowSpeedY;
     [SerializeField]
     [Tooltip("Speed to reach the new FieldOfView (Lower the Slower")]
     private float smoothZooming;//sets the speed of how long it takes for the camera to reach the set Field of View (the lower the Slower).
     private float normal; //this is the normal setting for the camera's Field of View.
     private float normalOffSetX;
     private float normalOffSetY;
+    private float normalFollowX;
+    private float normalFollowY;
     [SerializeField]
     [Tooltip("What the Camera will focus on while in the Zone")]
     private Transform cameraFocus;//this is what we want the Camera to focus on while we are in the zone.
@@ -33,6 +39,8 @@ public class CameraAdjuster : MonoBehaviour
         playerFocus = cameraTracking.GetComponent<CameraTracking>().trackingTarget;//this grabs the tracking target of the Main Camera (will normaly be the player)
         normalOffSetX = mainCamera.GetComponent<CameraTracking>().xOffset;
         normalOffSetY = mainCamera.GetComponent<CameraTracking>().yOffset;
+        normalFollowX = cameraTracking.GetComponent<CameraTracking>().xFollowSpeed;
+        normalFollowY = cameraTracking.GetComponent<CameraTracking>().yFollowSpeed;
     }
 
     private void OnTriggerStay(Collider collision)
@@ -44,7 +52,9 @@ public class CameraAdjuster : MonoBehaviour
             cameraTracking.GetComponent<CameraTracking>().trackingTarget = cameraFocus;//this makes the Main Camera focus change to want we want while in the zone
             cameraTracking.GetComponent<CameraTracking>().xOffset = newOffSetX;
             cameraTracking.GetComponent<CameraTracking>().yOffset = newOffSetY;
-            if(PlayerController.GetComponent<PlayerController>().alive == false)
+            cameraTracking.GetComponent<CameraTracking>().xFollowSpeed = newFollowSpeedX;
+            cameraTracking.GetComponent<CameraTracking>().yFollowSpeed = newFollowSpeedY;
+            if (PlayerController.GetComponent<PlayerController>().alive == false)
             {
                 cameraTracking.GetComponent<CameraTracking>().trackingTarget = playerFocus;
             }
@@ -59,6 +69,8 @@ public class CameraAdjuster : MonoBehaviour
             cameraTracking.GetComponent<CameraTracking>().trackingTarget = playerFocus;//this changes back the focus to the player after leaving the zone.
             cameraTracking.GetComponent<CameraTracking>().xOffset = normalOffSetX;
             cameraTracking.GetComponent<CameraTracking>().yOffset = normalOffSetY;
+            cameraTracking.GetComponent<CameraTracking>().xFollowSpeed = normalFollowX;
+            cameraTracking.GetComponent<CameraTracking>().yFollowSpeed = normalFollowY;
         }
     }
 }

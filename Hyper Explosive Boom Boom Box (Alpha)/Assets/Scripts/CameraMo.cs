@@ -6,9 +6,9 @@ public class CameraMo : MonoBehaviour
 {
     //Stolen from Game Dev Guides How to make a good looking UI
     [SerializeField]
-    private Vector2 min;
+    private Vector3 min;
     [SerializeField]
-    private Vector2 max;
+    private Vector3 max;
     [SerializeField]
     private Vector2 yRotationRange;
     [SerializeField]
@@ -36,8 +36,9 @@ public class CameraMo : MonoBehaviour
     {
         var xPos = Random.Range(min.x, max.x);
         var yPos = Random.Range(min.y, max.y);
+        var zPos = Random.Range(min.z, max.z);
         _newRotation = Quaternion.Euler(0, Random.Range(yRotationRange.x, yRotationRange.y), 0);
-        _newPosition = new Vector3(xPos, 0, yPos);
+        _newPosition = new Vector3(xPos, yPos, zPos);
 
     }
 

@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/R&D GamePlay.unity
-    guid: 35bcf32c9ffb3490490943957c095018
+    path: Assets/Scenes/Persistent Scene.unity
+    guid: 1c242433c62ea4f4d99a0c9a26dfbebc
+  - enabled: 1
+    path: Assets/Scenes/TITLE_SCREEN.unity
+    guid: 944432c66ba874041b5f790f65cb000c
   - enabled: 1
     path: Assets/Scenes/Level 001.unity
     guid: 9445ea5e936c846bbb1742bce6c80f17
@@ -23,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 005.unity
     guid: a13b98dd3e43c43a292b55951f27cfb6
+  - enabled: 1
+    path: Assets/Scenes/R&D GamePlay.unity
+    guid: 35bcf32c9ffb3490490943957c095018
   m_configObjects: {}

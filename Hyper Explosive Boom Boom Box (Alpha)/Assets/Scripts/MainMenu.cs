@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void StartGame()
+    public void LoadScene(string scene)
     {
-        GameManager.instance.LoadGame();
+        SceneManager.LoadScene(scene); //this will load scene that we type in on the editor
+    }
+    public void QuitGame()
+    {
+        Application.Quit(); //This closes the game
     }
 }

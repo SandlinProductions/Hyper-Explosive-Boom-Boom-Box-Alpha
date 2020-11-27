@@ -19,6 +19,7 @@ public class LevelSelector : MonoBehaviour
         {
             Debug.Log("I'm touching the Level Selector");
             levelSelectorUI.SetActive(true);
+            levelSelectorUI.GetComponent<LSUIMenu>().readyForName = true;
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -26,6 +27,7 @@ public class LevelSelector : MonoBehaviour
         if(collision.gameObject == player)
         {
             Debug.Log("I stepped off the Level Selector");
+            levelSelectorUI.GetComponent<LSUIMenu>().readyForName = false;
             levelSelectorUI.SetActive(false);
         }
     }

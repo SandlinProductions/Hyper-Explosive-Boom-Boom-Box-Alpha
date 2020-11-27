@@ -10,6 +10,7 @@ TagManager:
   - Skill
   - SoundManager
   - SceneFader
+  - Level Selector
   layers:
   - Default
   - TransparentFX
